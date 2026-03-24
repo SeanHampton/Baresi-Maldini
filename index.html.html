@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Baresi Maldini Partnership</title>
+  <meta name="description" content="Premium synthetic datasets for AI training, simulation, and behavioral modeling." />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fbff;
+      --text: #16212b;
+      --muted: #5a6876;
+      --line: #e3e9f1;
+      --accent: #184a94;
+      --accent-dark: #11356a;
+      --accent-soft: #eaf2ff;
+      --success: #0f766e;
+      --shadow: 0 20px 48px rgba(20, 38, 63, 0.08);
+      --shadow-soft: 0 10px 24px rgba(20, 38, 63, 0.06);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #f2f6fb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(248, 251, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(227, 233, 241, 0.92);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 14px 28px rgba(24, 74, 148, 0.22);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      color: var(--accent-dark);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 74px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 42px;
+      background:
+        radial-gradient(circle at top right, rgba(24, 74, 148, 0.08), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid #d6e4ff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 4vw, 4.2rem);
+      max-width: 12ch;
+    }
+
+    h2 { font-size: clamp(1.7rem, 2vw, 2.3rem); }
+    h3 { font-size: 1.08rem; }
+
+    .lead {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #d4deea;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: var(--surface-soft);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.5rem;
+      color: var(--accent-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 26px 0;
+    }
+
+    .section-header {
+      max-width: 74ch;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .panel p, .panel li { color: var(--muted); }
+
+    .clean-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .clean-list li { margin: 10px 0; }
+
+    .dataset-card {
+      padding: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(24, 74, 148, 0.08), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f3f7ff;
+      border: 1px solid #d7e5ff;
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mini-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .mini-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .proof-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .proof-item strong {
+      display: block;
+      color: var(--accent-dark);
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .proof-item span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta-panel {
+      padding: 32px;
+      background: linear-gradient(135deg, #12376f 0%, #184a94 100%);
+      color: #fff;
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 22px 46px rgba(18, 55, 111, 0.26);
+    }
+
+    .cta-panel p,
+    .cta-panel li { color: rgba(255,255,255,0.86); }
+
+    .cta-panel .btn {
+      background: #fff;
+      color: var(--accent-dark);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 42px 0 58px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .grid-3, .grid-2, .mini-grid, .proof-strip { grid-template-columns: 1fr; }
+      .hero { padding-top: 46px; }
+      .hero-main, .hero-side, .panel, .dataset-card, .cta-panel { padding: 24px; }
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="brand-mark">BMP</span>
+        <div class="brand-text">
+          <strong>The Baresi Maldini Partnership</strong>
+          <span>Synthetic datasets for AI training and simulation</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card hero-main">
+          <div class="eyebrow">Specialized synthetic datasets for enterprise AI teams</div>
+          <h1>Structured data assets for simulation, evaluation and training</h1>
+          <p class="lead">
+            The Baresi Maldini Partnership develops premium synthetic datasets designed for AI systems operating in domains where real-world data is difficult to access due to privacy, compliance or practical constraints.
+          </p>
+          <p class="lead">
+            Our current focus is behavioral simulation data for role-play systems, escalation modeling and conversational AI workflows that require realistic scenario progression without using real resident or patient data.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:sean@baresimaldini.com?subject=Request%20for%20Dataset%20Overview">Request dataset overview</a>
+            <a class="btn" href="#dataset">View current dataset</a>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="metric">
+            <strong>500 records</strong>
+            <span>Structured behavioral scenarios packaged for ML pipelines, simulation systems and fine-tuning workflows.</span>
+          </div>
+          <div class="metric">
+            <strong>V4 multi-step escalation</strong>
+            <span>Staged interventions, environmental adjustments and failure-path outcomes built into scenario logic.</span>
+          </div>
+          <div class="metric">
+            <strong>100% synthetic</strong>
+            <span>No real resident or patient data. Designed to reduce privacy, compliance and procurement friction.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+          <p>
+            We focus on narrowly defined, commercially useful datasets that help AI companies move faster in difficult-to-source domains. Our work combines technical usability, structured schema design and practical behavioral realism.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card panel">
+            <h3>Practical grounding</h3>
+            <p>
+              Scenario development incorporates input from a behavioral support trainer working with frontline carers, helping ensure escalation pathways reflect real support dynamics rather than generic synthetic dialogue.
+            </p>
+          </div>
+          <div class="card panel">
+            <h3>Enterprise-ready structure</h3>
+            <p>
+              Datasets are packaged for direct use in ML workflows, simulation environments and conversational AI testing, with evaluation materials available on request.
+            </p>
+          </div>
+          <div class="card panel">
+            <h3>Compliance-aware design</h3>
+            <p>
+              All current scenarios are fully synthetic and intentionally non-clinical, allowing teams to evaluate behavioral interactions without relying on sensitive real-world records.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dataset" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Current dataset</h2>
+          <p>
+            Our flagship asset is a premium behavioral simulation corpus built for AI systems where staged escalation, behavioral realism and privacy-safe training data materially improve development quality.
+          </p>
+        </div>
+
+        <div class="card dataset-card">
+          <h3>Premium Synthetic Behavioral Scenario Dataset (V4)</h3>
+          <p>
+            A 500-record dataset designed for role-play modeling, escalation-sensitive training, conversational safety testing and simulation-driven evaluation. The corpus is structured around behavioral categories, probable triggers, staged caregiver responses and expected outcomes.
+          </p>
+
+          <div class="badge-row">
+            <span class="badge">Multi-step escalation pathways</span>
+            <span class="badge">Resident personality variation</span>
+            <span class="badge">Failure-path outcomes</span>
+            <span class="badge">Structured risk tiers</span>
+            <span class="badge">CSV and JSONL formats</span>
+            <span class="badge">Synthetic by design</span>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-box">
+              <strong>Core schema</strong>
+              <span class="small">Behavior category, scenario description, environment context, probable trigger, caregiver response, communication strategy, expected outcome, risk level and follow-up recommendation.</span>
+            </div>
+            <div class="mini-box">
+              <strong>Primary applications</strong>
+              <span class="small">AI role-play systems, behavioral simulation, de-escalation modeling, model fine-tuning and structured evaluation in care-sensitive environments.</span>
+            </div>
+          </div>
+
+          <div class="proof-strip">
+            <div class="proof-item">
+              <strong>Balanced structure</strong>
+              <span>Coverage across ten behavioral categories with low, moderate and elevated risk scenarios.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Simulation-ready</strong>
+              <span>Designed to support staged interaction modeling rather than single-turn dialogue only.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Evaluation-friendly</strong>
+              <span>Clear fields enable use in testing, review and training pipelines.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Expandable corpus</strong>
+              <span>Built with a route to structured expansion beyond 500 records where demand justifies it.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Use cases</h2>
+          <p>
+            This dataset is intended for organizations building AI systems where behavioral nuance, escalation handling and privacy-safe scenario data are commercially important.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card panel">
+            <h3>Who it is for</h3>
+            <ul class="clean-list">
+              <li>AI role-play and simulation platforms</li>
+              <li>Care-tech and elder-care technology companies</li>
+              <li>Behavioral support and workforce training providers</li>
+              <li>Conversational AI teams operating in regulated domains</li>
+              <li>Research groups evaluating escalation-sensitive AI behavior</li>
+            </ul>
+          </div>
+          <div class="card panel">
+            <h3>What it supports</h3>
+            <ul class="clean-list">
+              <li>Scenario generation and evaluation</li>
+              <li>De-escalation and staged intervention modeling</li>
+              <li>Behavioral simulation design</li>
+              <li>Model fine-tuning and structured testing</li>
+              <li>Internal experimentation where live data is restricted</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently asked questions</h2>
+          <p>
+            These are the core points enterprise buyers usually want clarified before reviewing evaluation materials or discussing licensing.
+          </p>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <strong>Is the dataset based on real resident or patient data?</strong>
+            <p>No. The dataset is fully synthetic and designed specifically to avoid the privacy and compliance challenges associated with training on real care records.</p>
+          </div>
+          <div class="faq-item">
+            <strong>What makes the scenarios more useful than generic synthetic dialogue?</strong>
+            <p>The corpus is structured around behavioral taxonomy, staged escalation logic, environmental adjustments and failure-path outcomes, with practical input from frontline behavioral support training.</p>
+          </div>
+          <div class="faq-item">
+            <strong>How is the dataset delivered?</strong>
+            <p>Evaluation materials, overview documents and the full dataset can be provided in structured CSV and JSONL formats, depending on the buyer’s workflow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card cta-panel" id="contact">
+          <h2>Contact</h2>
+          <p>
+            For licensing, evaluation materials, sample records or partnership discussions, please get in touch. Dataset overview documents and evaluation packs are available on request.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="mailto:sean@baresimaldini.com?subject=Dataset%20Enquiry">Email Sean Hampton</a>
+          </div>
+          <p style="margin-top: 20px; font-weight: 700;">Sean Hampton<br />The Baresi Maldini Partnership</p>
+          <p class="small" style="color: rgba(255,255,255,0.84); margin-top: 6px;">
+            <a href="mailto:sean@baresimaldini.com" style="color:#fff;">sean@baresimaldini.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> The Baresi Maldini Partnership. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
