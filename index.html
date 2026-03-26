@@ -107,14 +107,8 @@
     .nav-links a:hover { color: var(--accent); }
 
     .hero {
-      padding: 74px 0 40px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: stretch;
+      padding: 80px 20px;
+      text-align: center;
     }
 
     .card {
@@ -122,13 +116,6 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: 42px;
-      background:
-        radial-gradient(circle at top right, rgba(24, 74, 148, 0.08), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
     }
 
     .eyebrow {
@@ -152,8 +139,9 @@
     }
 
     h1 {
-      font-size: clamp(2.45rem, 4vw, 4.2rem);
-      max-width: 12ch;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      max-width: none;
+      color: #0f2747;
     }
 
     h2 { font-size: clamp(1.7rem, 2vw, 2.3rem); }
@@ -163,7 +151,7 @@
       max-width: 60ch;
       color: var(--muted);
       font-size: 1.08rem;
-      margin-bottom: 18px;
+      margin: 0 auto 18px auto;
     }
 
     .cta-row {
@@ -171,6 +159,7 @@
       gap: 12px;
       flex-wrap: wrap;
       margin-top: 28px;
+      justify-content: center;
     }
 
     .btn {
@@ -196,34 +185,6 @@
       background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
       color: #fff;
       border-color: transparent;
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: grid;
-      gap: 16px;
-      align-content: start;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    }
-
-    .metric {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: var(--surface-soft);
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.5rem;
-      color: var(--accent-dark);
-      letter-spacing: -0.03em;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .section {
@@ -386,11 +347,8 @@
     }
 
     @media (max-width: 960px) {
-      .hero-grid, .grid-3, .grid-2, .mini-grid, .proof-strip { grid-template-columns: 1fr; }
-      .hero { padding-top: 46px; }
-      .hero-main, .hero-side, .panel, .dataset-card, .cta-panel { padding: 24px; }
+      .grid-3, .grid-2, .mini-grid, .proof-strip { grid-template-columns: 1fr; }
       .nav-inner { flex-direction: column; align-items: flex-start; }
-      h1 { max-width: none; }
     }
   </style>
 </head>
@@ -415,28 +373,28 @@
   </header>
 
   <main>
-  <section class="hero" style="padding:80px 20px; text-align:center;">
-  <div class="container" style="max-width:900px; margin:0 auto;">
-    <div class="eyebrow" style="justify-content:center;">Specialized synthetic datasets for enterprise AI teams</div>
+    <section class="hero">
+      <div class="container" style="max-width:900px; margin:0 auto;">
+        <div class="eyebrow" style="justify-content:center;">Specialized synthetic datasets for enterprise AI teams</div>
 
-    <h1 style="max-width:none; font-size:clamp(2.4rem, 4vw, 4.2rem); color:#0f2747;">
-      Structured Behavioral Datasets for AI Simulation and Training
-    </h1>
+        <h1>
+          Structured Behavioral Datasets for AI Simulation and Training
+        </h1>
 
-    <p class="lead" style="margin-left:auto; margin-right:auto;">
-      We develop synthetic, privacy-safe datasets designed for AI systems that require realistic human interaction modeling — including escalation handling, conversational dynamics and behavior-sensitive environments.
-    </p>
+        <p class="lead">
+          We develop synthetic, privacy-safe datasets designed for AI systems that require realistic human interaction modeling — including escalation handling, conversational dynamics and behavior-sensitive environments.
+        </p>
 
-    <p class="lead" style="margin-left:auto; margin-right:auto; color:#2F4F8F;">
-      Current release: <strong>500 multi-step behavioral scenarios</strong> designed for simulation platforms, conversational AI training and evaluation workflows.
-    </p>
+        <p class="lead" style="color:#2F4F8F;">
+          Current release: <strong>500 multi-step behavioral scenarios</strong> designed for simulation platforms, conversational AI training and evaluation workflows.
+        </p>
 
-    <div class="cta-row" style="justify-content:center;">
-      <a class="btn btn-primary" href="#dataset">View Dataset Overview</a>
-      <a class="btn" href="Gold_Standard_Scenarios_Showcase_Premium.pdf" target="_blank">View Example Scenarios</a>
-    </div>
-  </div>
-</section>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#dataset">View Dataset Overview</a>
+          <a class="btn" href="Gold_Standard_Scenarios_Showcase_Premium.pdf" target="_blank">View Example Scenarios</a>
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="section">
       <div class="container">
@@ -470,61 +428,87 @@
     </section>
 
     <section id="dataset" class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Current dataset</h2>
-      <p>
-        Our flagship asset is a premium behavioral simulation corpus built for AI systems where staged escalation, behavioral realism and privacy-safe training data materially improve development quality.
-      </p>
-    </div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Current dataset</h2>
+          <p>
+            Our flagship asset is a premium behavioral simulation corpus built for AI systems where staged escalation, behavioral realism and privacy-safe training data materially improve development quality.
+          </p>
+        </div>
 
-    <div class="card dataset-card">
-      <h3>Premium Synthetic Behavioral Scenario Dataset (V4)</h3>
-      <p>
-        A 500-record dataset designed for role-play modeling, escalation-sensitive training, conversational safety testing and simulation-driven evaluation. The corpus is structured around behavioral categories, probable triggers, staged caregiver responses and expected outcomes.
-      </p>
+        <div class="card dataset-card">
+          <h3>Premium Synthetic Behavioral Scenario Dataset (V4)</h3>
+          <p>
+            A 500-record dataset designed for role-play modeling, escalation-sensitive training, conversational safety testing and simulation-driven evaluation. The corpus is structured around behavioral categories, probable triggers, staged caregiver responses and expected outcomes.
+          </p>
 
-      <div class="badge-row">
-        <span class="badge">Multi-step escalation pathways</span>
-        <span class="badge">Resident personality variation</span>
-        <span class="badge">Failure-path outcomes</span>
-        <span class="badge">Structured risk tiers</span>
-        <span class="badge">CSV and JSONL formats</span>
-        <span class="badge">Synthetic by design</span>
+          <div style="background:#f5f7fb; border:1px solid #dfe7f1; border-radius:16px; padding:22px; margin:22px 0;">
+            <p style="margin:0 0 12px 0; font-size:16px; font-weight:700; color:#11356a;">
+              See exactly how the interaction structure works before reviewing the full dataset.
+            </p>
+
+            <p style="margin:0 0 14px 0; font-size:15px; line-height:1.6; color:#5a6876;">
+              We’ve included a short showcase of representative scenarios so you can quickly assess the structure, realism and multi-step progression used throughout the corpus.
+            </p>
+
+            <p style="margin:0 0 16px 0; font-size:15px; line-height:1.6; color:#5a6876;">
+              These examples highlight escalation modeling, intervention strategies, emotional nuance and outcome progression — the core elements that differentiate this dataset from generic synthetic dialogue.
+            </p>
+
+            <a href="Gold_Standard_Scenarios_Showcase_Premium.pdf"
+               target="_blank"
+               class="btn btn-primary"
+               style="margin-top:4px;">
+              View Example Behavioral Scenarios
+            </a>
+
+            <p style="margin:12px 0 0 0; font-size:13px; color:#5a6876;">
+              Includes multi-step escalation examples, failure-path recovery, and simulation-ready interaction structure.
+            </p>
+          </div>
+
+          <div class="badge-row">
+            <span class="badge">Multi-step escalation pathways</span>
+            <span class="badge">Resident personality variation</span>
+            <span class="badge">Failure-path outcomes</span>
+            <span class="badge">Structured risk tiers</span>
+            <span class="badge">CSV and JSONL formats</span>
+            <span class="badge">Synthetic by design</span>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-box">
+              <strong>Core schema</strong>
+              <span class="small">Behavior category, scenario description, environment context, probable trigger, caregiver response, communication strategy, expected outcome, risk level and follow-up recommendation.</span>
+            </div>
+            <div class="mini-box">
+              <strong>Primary applications</strong>
+              <span class="small">AI role-play systems, behavioral simulation, de-escalation modeling, model fine-tuning and structured evaluation in care-sensitive environments.</span>
+            </div>
+          </div>
+
+          <div class="proof-strip">
+            <div class="proof-item">
+              <strong>Balanced structure</strong>
+              <span>Coverage across ten behavioral categories with low, moderate and elevated risk scenarios.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Simulation-ready</strong>
+              <span>Designed to support staged interaction modeling rather than single-turn dialogue only.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Evaluation-friendly</strong>
+              <span>Clear fields enable use in testing, review and training pipelines.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Expandable corpus</strong>
+              <span>Built with a route to structured expansion beyond 500 records where demand justifies it.</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="mini-grid">
-        <div class="mini-box">
-          <strong>Core schema</strong>
-          <span class="small">Behavior category, scenario description, environment context, probable trigger, caregiver response, communication strategy, expected outcome, risk level and follow-up recommendation.</span>
-        </div>
-        <div class="mini-box">
-          <strong>Primary applications</strong>
-          <span class="small">AI role-play systems, behavioral simulation, de-escalation modeling, model fine-tuning and structured evaluation in care-sensitive environments.</span>
-        </div>
-      </div>
-
-      <div class="proof-strip">
-        <div class="proof-item">
-          <strong>Balanced structure</strong>
-          <span>Coverage across ten behavioral categories with low, moderate and elevated risk scenarios.</span>
-        </div>
-        <div class="proof-item">
-          <strong>Simulation-ready</strong>
-          <span>Designed to support staged interaction modeling rather than single-turn dialogue only.</span>
-        </div>
-        <div class="proof-item">
-          <strong>Evaluation-friendly</strong>
-          <span>Clear fields enable use in testing, review and training pipelines.</span>
-        </div>
-        <div class="proof-item">
-          <strong>Expandable corpus</strong>
-          <span>Built with a route to structured expansion beyond 500 records where demand justifies it.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     <section id="use-cases" class="section">
       <div class="container">
         <div class="section-header">
@@ -590,7 +574,7 @@
         <div class="card cta-panel" id="contact">
           <h2>Contact</h2>
           <p>
-            For licensing, evaluation materials, sample records or partnership discussions, please get in touch. Dataset overview documents and evaluation packs are available on request.
+            For licensing, evaluation materials, sample records or partnership discussions please get in touch. Dataset overview documents and evaluation packs are available on request.
           </p>
           <div class="cta-row">
             <a class="btn" href="mailto:sean@baresimaldini.com?subject=Dataset%20Enquiry">Email Sean Hampton</a>
@@ -615,4 +599,3 @@
   </script>
 </body>
 </html>
-
